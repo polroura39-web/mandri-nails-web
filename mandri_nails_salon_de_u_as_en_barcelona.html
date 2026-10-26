@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandri Nails | Salón de Uñas & Belleza en Sarrià - Sant Gervasi, Barcelona</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nude: {
+                            50: '#FDFBF9',
+                            100: '#F7F3EE',
+                            200: '#EFE6DC',
+                            300: '#E3D3C3',
+                            400: '#D5BDA9',
+                            500: '#C7A892',
+                            600: '#B08C75',
+                            700: '#8F6C56',
+                            800: '#6B4E3D',
+                            900: '#483327'
+                        },
+                        rosegold: {
+                            light: '#F8E7E1',
+                            DEFAULT: '#D4A373',
+                            dark: '#B58352',
+                            accent: '#E0A899'
+                        },
+                        charcoal: '#231F20'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #C7A892 0%, #E0A899 50%, #B08C75 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .luxury-card-glow {
+            box-shadow: 0 10px 30px -10px rgba(199, 168, 146, 0.15);
+        }
+        .luxury-card-glow:hover {
+            box-shadow: 0 20px 40px -10px rgba(199, 168, 146, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-nude-50 text-charcoal font-sans antialiased selection:bg-rosegold-light selection:text-nude-900 overflow-x-hidden">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-nude-900 text-nude-100 py-2.5 px-4 text-xs tracking-wider uppercase text-center flex justify-center items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Reservas en línea abiertas vía <strong>Treatwell</strong> con confirmación inmediata</span>
+        <a href="https://www.treatwell.es/establecimiento/mandri-nails/?utm_source=google&utm_medium=rwg" target="_blank" rel="noopener" class="underline ml-2 hover:text-rosegold-accent transition-colors">Reservar ahora &rarr;</a>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-nude-50/90 backdrop-blur-md border-b border-nude-200/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex flex-col items-start group">
+                    <span class="font-serif text-2xl sm:text-3xl tracking-widest text-nude-900 group-hover:text-rosegold transition-colors">MANDRI NAILS</span>
+                    <span class="text-[10px] tracking-[0.3em] uppercase text-nude-600 font-medium -mt-1">Barcelona · Bonanova</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-widest text-nude-800 font-medium">
+                    <a href="#about" class="hover:text-rosegold transition-colors">Nosotros</a>
+                    <a href="#services" class="hover:text-rosegold transition-colors">Servicios</a>
+                    <a href="#reviews" class="hover:text-rosegold transition-colors">Opiniones</a>
+                    <a href="#gallery" class="hover:text-rosegold transition-colors">Galería</a>
+                    <a href="#location" class="hover:text-rosegold transition-colors">Ubicación</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <button onclick="openBookingModal()" class="px-5 py-2.5 rounded-full border border-nude-800 text-nude-900 hover:bg-nude-900 hover:text-white transition-all text-xs font-semibold uppercase tracking-wider">
+                        Cita Rápida
+                    </button>
+                    <a href="https://www.treatwell.es/establecimiento/mandri-nails/?utm_source=google&utm_medium=rwg" target="_blank" rel="noopener" class="px-6 py-2.5 rounded-full bg-nude-800 text-white hover:bg-nude-900 shadow-md transition-all text-xs font-semibold uppercase tracking-wider flex items-center gap-2 group">
+                        <span>Treatwell</span>
+                        <i data-lucide="external-link" class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 text-nude-900 hover:text-rosegold focus:outline-none" aria-label="Abrir menú">
+                        <i data-lucide="menu" class="w-7 h-7"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 z-50 bg-nude-900/40 backdrop-blur-sm transition-opacity">
+            <div class="fixed inset-y-0 right-0 w-4/5 max-w-sm bg-nude-50 shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
+                <div>
+                    <div class="flex justify-between items-center border-b border-nude-200 pb-4">
+                        <span class="font-serif text-xl tracking-widest text-nude-900">MANDRI NAILS</span>
+                        <button id="close-menu-btn" class="p-2 text-nude-800 hover:text-rosegold" aria-label="Cerrar menú">
+                            <i data-lucide="x" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                    <nav class="mt-8 flex flex-col space-y-6 text-sm uppercase tracking-widest font-medium text-nude-800">
+                        <a href="#about" class="mobile-link hover:text-rosegold">Nosotros</a>
+                        <a href="#services" class="mobile-link hover:text-rosegold">Servicios y Precios</a>
+                        <a href="#reviews" class="mobile-link hover:text-rosegold">Opiniones Clientes</a>
+                        <a href="#gallery" class="mobile-link hover:text-rosegold">Galería de Trabajos</a>
+                        <a href="#location" class="mobile-link hover:text-rosegold">Ubicación y Horarios</a>
+                    </nav>
+                </div>
+                <div class="space-y-3 pt-6 border-t border-nude-200">
+                    <button onclick="openBookingModal(); toggleMobileMenu();" class="w-full py-3 rounded-full border border-nude-800 text-nude-900 text-xs font-semibold uppercase tracking-wider text-center">
+                        Planificar Cita
+                    </button>
+                    <a href="https://www.treatwell.es/establecimiento/mandri-nails/?utm_source=google&utm_medium=rwg" target="_blank" rel="noopener" class="w-full py-3 rounded-full bg-nude-800 text-white text-xs font-semibold uppercase tracking-wider text-center flex justify-center items-center gap-2">
+                        <span>Reservar en Treatwell</span>
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[88vh] flex items-center justify-center overflow-hidden py-16 lg:py-24">
+        <!-- Background Imagery & Gradient Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1920&auto=format&fit=crop" alt="Manicura elegante en Barcelona" class="w-full h-full object-cover object-center opacity-35 scale-105 transition-transform duration-10000" id="hero-bg">
+            <div class="absolute inset-0 bg-gradient-to-r from-nude-50/95 via-nude-50/80 to-nude-50/60"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-nude-50 via-transparent to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-nude-200/80 border border-nude-300 text-nude-800 text-xs font-medium uppercase tracking-widest backdrop-blur-sm">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-rosegold-dark"></i>
+                        <span>Experiencia Beauty Premium</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-nude-900 leading-tight">
+                        Tu espacio de belleza y cuidado de uñas en <span class="italic font-serif gold-gradient-text">Sarrià - Sant Gervasi</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-nude-700 max-w-xl font-light leading-relaxed">
+                        Especialistas en Manicura Rusa, Semipermanente y Uñas de Gel en Carrer de Mandri. Un refugio de cuidado personalizado, higiene absoluta y elegancia en Barcelona.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
+                        <a href="https://www.treatwell.es/establecimiento/mandri-nails/?utm_source=google&utm_medium=rwg" target="_blank" rel="noopener" class="px-8 py-4 rounded-full bg-nude-900 text-white hover:bg-nude-800 shadow-xl hover:shadow-2xl transition-all duration-300 text-xs font-bold uppercase tracking-widest text-center flex items-center justify-center gap-3 group">
+                            <span>Reservar en Treatwell</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#services" class="px-8 py-4 rounded-full bg-white/80 hover:bg-white text-nude-900 border border-nude-300 shadow-sm transition-all duration-300 text-xs font-bold uppercase tracking-widest text-center">
+                            Ver Servicios & Precios
+                        </a>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="pt-8 border-t border-nude-200/80 grid grid-cols-3 gap-4 max-w-lg">
+                        <div class="flex flex-col">
+                            <span class="font-serif text-2xl font-semibold text-nude-900">4.9 / 5</span>
+                            <span class="text-xs text-nude-600 flex items-center gap-1">
+                                <i data-lucide="star" class="w-3 h-3 fill-rosegold text-rosegold"></i>
+                                +500 Reseñas
+                            </span>
+                        </div>
+                        <div class="flex flex-col border-l border-nude-200 pl-4">
+                            <span class="font-serif text-2xl font-semibold text-nude-900">100%</span>
+                            <span class="text-xs text-nude-600">Esterilización UV</span>
+                        </div>
+                        <div class="flex flex-col border-l border-nude-200 pl-4">
+                            <span class="font-serif text-2xl font-semibold text-nude-900">Premium</span>
+                            <span class="text-xs text-nude-600">Emaltes veganos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Card Showcase -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-sm lg:max-w-none">
+                        <!-- Decorative Frame -->
+                        <div class="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-rosegold-accent/30 via-nude-300/20 to-nude-400/40 blur-xl"></div>
+                        <div class="relative bg-white/90 p-4 rounded-3xl shadow-xl border border-nude-200 backdrop-blur-md">
+                            <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=800&auto=format&fit=crop" alt="Mandri Nails Salon" class="rounded-2xl w-full h-80 object-cover">
+                            
+                            <div class="p-4 space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <h3 class="font-serif text-lg text-nude-900 font-medium">Mandri Nails Salon</h3>
+                                    <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-semibold uppercase tracking-wider">Abierto</span>
+                                </div>
+                                <p class="text-xs text-nude-600 flex items-center gap-1">
+                                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-rosegold"></i>
+                                    Carrer de Mandri, 08022 Barcelona
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-20 bg-nude-100/60 border-y border-nude-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+                <span class="text-xs font-semibold tracking-widest text-rosegold-dark uppercase">La experiencia Mandri Nails</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-nude-900">Perfección en cada detalle</h2>
+                <div class="w-12 h-0.5 bg-rosegold mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-2xl border border-nude-200/80 luxury-card-glow transition-all duration-300 space-y-4">
+                    <div class="w-12 h-12 rounded-full bg-nude-100 flex items-center justify-center text-rosegold-dark">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-xl text-nude-900 font-medium">Máxima Higiene y Cuidado</h3>
+                    <p class="text-sm text-nude-700 leading-relaxed">
+                        Desinfección estricta y empaquetado esterilizado para cada cliente. Tu salud y el estado natural de tus uñas son nuestra máxima prioridad.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-2xl border border-nude-200/80 luxury-card-glow transition-all duration-300 space-y-4">
+                    <div class="w-12 h-12 rounded-full bg-nude-100 flex items-center justify-center text-rosegold-dark">
+                        <i data-lucide="award" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-xl text-nude-900 font-medium">Técnicas Rusas de Precisión</h3>
+                    <p class="text-sm text-nude-700 leading-relaxed">
+                        Manicuristas certificadas y especializadas en técnica combinada y rusa con torno para acabados impecables y mayor durabilidad.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-2xl border border-nude-200/80 luxury-card-glow transition-all duration-300 space-y-4">
+                    <div class="w-12 h-12 rounded-full bg-nude-100 flex items-center justify-center text-rosegold-dark">
+                        <i data-lucide="sparkle" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-xl text-nude-900 font-medium">Productos de Alta Gama</h3>
+                    <p class="text-sm text-nude-700 leading-relaxed">
+                        Utilizamos las marcas líderes en el mercado libre de químicos nocivos (7-Free/10-Free) para mantener tus uñas fuertes y nutridas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES & PRICE LIST MENU -->
+    <section id="services" class="py-24 bg-nude-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-3 mb-12">
+                <span class="text-xs font-semibold tracking-widest text-rosegold-dark uppercase">Nuestra Carta de Tratamientos</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-nude-900">Servicios & Precios</h2>
+                <p class="text-sm text-nude-600">Selecciona una categoría para explorar nuestros tratamientos exclusivos.</p>
+                <div class="w-12 h-0.5 bg-rosegold mx-auto"></div>
+            </div>
+
+            <!-- Tab Navigation Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
+                <button onclick="switchTab('manicura')" id="tab-manicura" class="tab-btn px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-nude-900 text-white shadow-md">
+                    Manicura
+                </button>
+                <button onclick="switchTab('pedicura')" id="tab-pedicura" class="tab-btn px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-nude-800 border border-nude-200 hover:border-nude-400">
+                    Pedicura
+                </button>
+                <button onclick="switchTab('gel')" id="tab-gel" class="tab-btn px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-nude-800 border border-nude-200 hover:border-nude-400">
+                    Gel & Extensiones
+                </button>
+                <button onclick="switchTab('nailart')" id="tab-nailart" class="tab-btn px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 bg-white text-nude-800 border border-nude-200 hover:border-nude-400">
+                    Nail Art & Especiales
+                </button>
+            </div>
+
+            <!-- Services Containers -->
+
+            <!-- MANICURA -->
+            <div id="content-manicura" class="tab-content grid md:grid-cols-2 gap-6">
+                <!-- Item -->
+                <div class="bg-white p-6 rounded-2xl border border-nude-200 hover:border-nude-300 transition-all flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-serif text-lg font-semibold text-nude-900">Manicura Semipermanente Mandri</h3>
+                            <span class="font-serif text-lg font-bold text-nude-800">28 €</span>
+                        </div>
+                        <p class="text-xs text-nude-500 font-medium mt-1 flex items-center gap-1">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> 45 min
+                        </p>
+                        <p class="text-xs text-nude-700 mt-3 leading-relaxed">
+                            Limpieza detallada de cutículas, limado anatómico, esmaltado semipermanente de alta durabilidad con brillo intenso y suave masaje con crema hidratante.
+                        </p>
+                    </div>
+                    <button onclick="openBookingModal('Manicura Semipermanente Mandri')" class="w-full py-2.5 rounded-xl bg-nude-100 hover:bg-nude-900 hover:text-white text-nude-900 text-xs font-semibold uppercase tracking-wider transition-all">
+                        Reservar Cita
+                    </button>
+                </div>
+
+                <!-- Item -->
+                <div class="bg-white p-6 rounded-2xl border border-nude-200 hover:border-nude-300 transition-all flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-serif text-lg font-semibold text-nude-900">Manicura Rusa Combinada</h3>
+                            <span class="font-serif text-lg font-bold text-nude-800">35 €</span>
+                        </div>
+                        <p class="text-xs text-nude-500 font-medium mt-1 flex items-center gap-1">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> 60 min
+                        </p>
+                        <p class="text-xs text-nude-700 mt-3 leading-relaxed">
+                            Limpieza profunda y exhaustiva de cutícula con torno y tijera especial. Esmaltado debajo de la cutícula para un crecimiento impecable y duradero.
+                        </p>
+                    </div>
+                    <button onclick="openBookingModal('Manicura Rusa Combinada')" class="w-full py-2.5 rounded-xl bg-nude-100 hover:bg-nude-900 hover:text-white text-nude-900 text-xs font-semibold uppercase tracking-wider transition-all">
+                        Reservar Cita
+                    </button>
+                </div>
+
+                <!-- Item -->
+                <div class="bg-white p-6 rounded-2xl border border-nude-200 hover:border-nude-300 transition-all flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-serif text-lg font-semibold text-nude-900">Manicura Exfoliante & Nutritiva (Tradicional)</h3>
+                            <span class="font-serif text-lg font-bold text-nude-800">22 €</span>
+                        </div>
+                        <p class="text-xs text-nude-500 font-medium mt-1 flex items-center gap-1">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> 35 min
+                        </p>
+                        <p class="text-xs text-nude-700 mt-3 leading-relaxed">
+                            Cuidado completo para quienes prefieren esmalte convencional. Exfoliación suave de manos, acondicionamiento de cutículas y esmaltado clásico.
+                        </p>
+                    </div>
+                    <button onclick="openBookingModal('Manicura Exfoliante Tradicional')" class="w-full py-2.5 rounded-xl bg-nude-100 hover:bg-nude-900 hover:text-white text-nude-900 text-xs font-semibold uppercase tracking-wider transition-all">
+                        Reservar Cita
+                    </button>
+                </div>
+
+                <!-- Item -->
+                <div class="bg-white p-6 rounded-2xl border border-nude-200 hover:border-nude-300 transition-all flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-serif text-lg font-semibold text-nude-900">Manicura Masculina Clean & Neat</h3>
+                            <span class="font-serif text-lg font-bold text-nude-800">20 €</span>
+                        </div>
+                        <p class="text-xs text-nude-500 font-medium mt-1 flex items-center gap-1">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> 30 min
+                        </p>
+                        <p class="text-xs text-nude-700 mt-3 leading-relaxed">
+                            Tratamiento enfocado en la salud de las uñas: pulido natural, arreglo impecable de cutículas, exfoliación y tratamiento fortalecedor mate.
+                        </p>
+                    </div>
+                    <button onclick="openBookingModal('Manicura Masculina Clean & Neat')" class="w-full py-2.5 rounded-xl bg-nude-100 hover:bg-nude-900 hover:text-white text-nude-900 text-xs font-semibold uppercase tracking-wider transition-all">
+                        Reservar Cita
+                    </button>
+                </div>
+            </div>
+
+            <!-- PEDICURA -->
+            <div id="content-pedicura" class="tab-content hidden grid md:grid-cols-2 gap-6">
+                <!-- Item -->
+                <div class="bg-white p-6 rounded-2xl border border-nude-200 hover:border-nude-300 transition-all flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-serif text-lg font-semibold text-nude-900">Pedicura Spa Completa Semipermanente</h3>
+                            <span class="font-serif text-lg font-bold text-nude-800">42 €</span>
+                        </div>
+                        <p class="text-xs text-nude-500 font-medium mt-1 flex items-center gap-1">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> 60 min
+                        </p>
+                        <p class="text-xs text-nude-700 mt-3 leading-relaxed">
+                            Baño relajante, eliminación de durezas y asperezas, exfoliación de sales, cuidado de uñas y esmaltado de larga duración.
+                        </p>
+                    </div>
+                    <button onclick="openBookingModal('Pedicura Spa Completa Semipermanente')" class="w-full py-2.5 rounded-xl bg-nude-100 hover:bg-nude-900 hover:text-white text-nude-900 text-xs font-semibold uppercase tracking-wider transition-all">
+                        Reservar Cita
+                    </button>
+                </div>
+
+                <!-- Item -->
+                <div class="bg-white p-6 rounded-2xl border border-nude-200 hover:border-nude-300 transition-all flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-serif text-lg font-semibold text-nude-900">Pedicura Express</h3>
+                            <span class="font-serif text-lg font-bold text-nude-800">30 €</span>
+                        </div>
+                        <p class="text-xs text-nude-500 font-medium mt-1 flex items-center gap-1">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> 35 min
+                        </p>
+                        <p class="text-xs text-nude-700 mt-3 leading-relaxed">
+                            Diseñada para refrescar la belleza de tus pies: limado, arreglo de cutículas y esmaltado semipermanente o tradicional.
+                        </p>
+                    </div>
+                    <button onclick="openBookingModal('Pedicura Express')" class="w-full py-2.5 rounded-xl bg-nude-100 hover:bg-nude-900 hover:text-white text-nude-900 text-xs font-semibold uppercase tracking-wider transition-all">
+                        Reservar Cita
+                    </button>
+                </div>
+            </div>
+
+            <!-- GEL & EXTENSIONES -->
+            <div id="content-gel" class="tab-content hidden grid md:grid-cols-2 gap-6">
+                <!-- Item -->
+                <div class="bg-white p-6 rounded-2xl border border-nude-200 hover:border-nude-300 transition-all flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-serif text-lg font-semibold text-nude-900">Extensiones de Uñas en Gel / Acrigel</h3>
+                            <span class="font-serif text-lg font-bold text-nude-800">55 €</span>
+                        </div>
+                        <p class="text-xs text-nude-500 font-medium mt-1 flex items-center gap-1">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> 90 min
+                        </p>
+                        <p class="text-xs text-nude-700 mt-3 leading-relaxed">
+                            Construcción de uñas con molde para la longitud y forma deseada. Incluye manicura de cutícula y esmaltado de color.
+                        </p>
+                    </div>
+                    <button onclick="openBookingModal('Extensiones de Uñas en Gel')" class="w-full py-2.5 rounded-xl bg-nude-100 hover:bg-nude-900 hover:text-white text-nude-900 text-xs font-semibold uppercase tracking-wider transition-all">
+                        Reservar Cita
+                    </button>
+                </div>
+
+                <!-- Item -->
+                <div class="bg-white p-6 rounded-2xl border border-nude-200 hover:border-nude-300 transition-all flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-serif text-lg font-semibold text-nude-900">Relleno de Gel / Acrílico</h3>
+                            <span class="font-serif text-lg font-bold text-nude-800">38 €</span>
+                        </div>
+                        <p class="text-xs text-nude-500 font-medium mt-1 flex items-center gap-1">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> 60 min
+                        </p>
+                        <p class="text-xs text-nude-700 mt-3 leading-relaxed">
+                            Mantenimiento periódico recomendado cada 3-4 semanas. Rebalanceo de estructura y nuevo color de acabado.
+                        </p>
+                    </div>
+                    <button onclick="openBookingModal('Relleno de Gel / Acrílico')" class="w-full py-2.5 rounded-xl bg-nude-100 hover:bg-nude-900 hover:text-white text-nude-900 text-xs font-semibold uppercase tracking-wider transition-all">
+                        Reservar Cita
+                    </button>
+                </div>
+            </div>
+
+            <!-- NAIL ART -->
+            <div id="content-nailart" class="tab-content hidden grid md:grid-cols-2 gap-6">
+                <!-- Item -->
+                <div class="bg-white p-6 rounded-2xl border border-nude-200 hover:border-nude-300 transition-all flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-serif text-lg font-semibold text-nude-900">Nail Art Personalizado (por uña)</h3>
+                            <span class="font-serif text-lg font-bold text-nude-800">desde 2 €</span>
+                        </div>
+                        <p class="text-xs text-nude-500 font-medium mt-1 flex items-center gap-1">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> Variable
+                        </p>
+                        <p class="text-xs text-nude-700 mt-3 leading-relaxed">
+                            Líneas finas, efectos degradados (Babyboomer), estampados o piedras decorativas. Consulta tus ideas con nuestro equipo.
+                        </p>
+                    </div>
+                    <button onclick="openBookingModal('Nail Art Personalizado')" class="w-full py-2.5 rounded-xl bg-nude-100 hover:bg-nude-900 hover:text-white text-nude-900 text-xs font-semibold uppercase tracking-wider transition-all">
+                        Reservar Cita
+                    </button>
+                </div>
+
+                <!-- Item -->
+                <div class="bg-white p-6 rounded-2xl border border-nude-200 hover:border-nude-300 transition-all flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-serif text-lg font-semibold text-nude-900">Tratamiento de Parafina Hidratante</h3>
+                            <span class="font-serif text-lg font-bold text-nude-800">12 €</span>
+                        </div>
+                        <p class="text-xs text-nude-500 font-medium mt-1 flex items-center gap-1">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> 20 min
+                        </p>
+                        <p class="text-xs text-nude-700 mt-3 leading-relaxed">
+                            Ideal para manos resecas o castigadas. Hidratación profunda con calor térmico que restaura la flexibilidad y suavidad de la piel.
+                        </p>
+                    </div>
+                    <button onclick="openBookingModal('Tratamiento Parafina Hidratante')" class="w-full py-2.5 rounded-xl bg-nude-100 hover:bg-nude-900 hover:text-white text-nude-900 text-xs font-semibold uppercase tracking-wider transition-all">
+                        Reservar Cita
+                    </button>
+                </div>
+            </div>
+
+            <!-- Direct Treatwell Banner Link -->
+            <div class="mt-12 bg-nude-200/50 p-6 rounded-2xl text-center flex flex-col sm:flex-row justify-between items-center gap-4 border border-nude-300/60">
+                <div class="text-left">
+                    <h4 class="font-serif text-lg font-semibold text-nude-900">¿Quieres revisar todas las combinaciones y horarios?</h4>
+                    <p class="text-xs text-nude-700">Accede directamente al perfil oficial de Mandri Nails en Treatwell España.</p>
+                </div>
+                <a href="https://www.treatwell.es/establecimiento/mandri-nails/?utm_source=google&utm_medium=rwg" target="_blank" rel="noopener" class="px-6 py-3 rounded-full bg-nude-900 text-white text-xs font-bold uppercase tracking-wider shrink-0 hover:bg-nude-800 transition-colors">
+                    Ver Carta Completa en Treatwell
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section id="reviews" class="py-20 bg-nude-900 text-nude-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+                <span class="text-xs font-semibold tracking-widest text-rosegold-accent uppercase">Experiencias Verificadas</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-white">Lo que dicen nuestras clientas</h2>
+                <div class="flex justify-center items-center gap-1 text-rosegold">
+                    <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                    <span class="text-xs text-nude-200 ml-2">4.9 estrellas en Treatwell</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-nude-800/80 p-8 rounded-2xl border border-nude-700 space-y-4">
+                    <div class="flex text-rosegold">
+                        <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                    </div>
+                    <p class="text-xs text-nude-200 italic leading-relaxed">
+                        "Excelente atención y profesionalismo. La manicura rusa que me hicieron duró intacta casi un mes completo. El salón en la zona de Mandri es precioso y súper limpio."
+                    </p>
+                    <div class="pt-4 border-t border-nude-700 flex justify-between items-center text-xs">
+                        <span class="font-semibold text-white">Marta G.</span>
+                        <span class="text-nude-400">Cliente Treatwell</span>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-nude-800/80 p-8 rounded-2xl border border-nude-700 space-y-4">
+                    <div class="flex text-rosegold">
+                        <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                    </div>
+                    <p class="text-xs text-nude-200 italic leading-relaxed">
+                        "Súper delicadas con las cutículas y los productos son de excelente calidad. Además el trato del personal es súper cercano. Mi centro de uñas favorito en Barcelona."
+                    </p>
+                    <div class="pt-4 border-t border-nude-700 flex justify-between items-center text-xs">
+                        <span class="font-semibold text-white">Elena S.</span>
+                        <span class="text-nude-400">Cliente Frecuente</span>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-nude-800/80 p-8 rounded-2xl border border-nude-700 space-y-4">
+                    <div class="flex text-rosegold">
+                        <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-rosegold"></i>
+                    </div>
+                    <p class="text-xs text-nude-200 italic leading-relaxed">
+                        "La pedicura spa es una maravilla relajante. Salí encantada. La reserva por Treatwell funciona genial y son muy puntuales con los horarios."
+                    </p>
+                    <div class="pt-4 border-t border-nude-700 flex justify-between items-center text-xs">
+                        <span class="font-semibold text-white">Carla V.</span>
+                        <span class="text-nude-400">Cliente Treatwell</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY GRID -->
+    <section id="gallery" class="py-24 bg-nude-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+                <span class="text-xs font-semibold tracking-widest text-rosegold-dark uppercase">Inspiración & Trabajos</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-nude-900">Galería de Resultados</h2>
+                <div class="w-12 h-0.5 bg-rosegold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                <div class="group relative overflow-hidden rounded-2xl h-64 sm:h-80 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=600&auto=format&fit=crop" alt="Manicura Nude" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-nude-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex items-end">
+                        <span class="text-white text-xs font-medium uppercase tracking-wider">Acabado Nude Elegante</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl h-64 sm:h-80 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=600&auto=format&fit=crop" alt="Nail Art Minimalista" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-nude-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex items-end">
+                        <span class="text-white text-xs font-medium uppercase tracking-wider">Diseño Francés Moderno</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl h-64 sm:h-80 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=600&auto=format&fit=crop" alt="Uñas de Gel" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-nude-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex items-end">
+                        <span class="text-white text-xs font-medium uppercase tracking-wider">Gel de Alta Precisión</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl h-64 sm:h-80 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=600&auto=format&fit=crop" alt="Pedicura Spa" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-nude-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex items-end">
+                        <span class="text-white text-xs font-medium uppercase tracking-wider">Cuidado Pedicura Spa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & CONTACT SECTION -->
+    <section id="location" class="py-24 bg-nude-100/60 border-t border-nude-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                <!-- Details Column -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-xs font-semibold tracking-widest text-rosegold-dark uppercase">Visítanos</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl text-nude-900 mt-1">Ubicación & Horario</h2>
+                        <p class="text-sm text-nude-600 mt-2">En el corazón del barrio Bonanova / Sarrià - Sant Gervasi.</p>
+                    </div>
+
+                    <div class="space-y-6 text-sm text-nude-800">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-nude-200 flex items-center justify-center shrink-0 text-rosegold-dark">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-nude-900">Dirección</h4>
+                                <p class="text-nude-700">Carrer de Mandri, Barcelona</p>
+                                <p class="text-xs text-nude-500">Sarrià - Sant Gervasi, 08022 Barcelona</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-nude-200 flex items-center justify-center shrink-0 text-rosegold-dark">
+                                <i data-lucide="clock" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-nude-900">Horario de Apertura</h4>
+                                <p class="text-nude-700">Lunes a Viernes: 10:00 - 20:00 h</p>
+                                <p class="text-nude-700">Sábados: 10:00 - 18:00 h</p>
+                                <p class="text-xs text-nude-500">Domingos: Cerrado</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-nude-200 flex items-center justify-center shrink-0 text-rosegold-dark">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-nude-900">Contacto & Reservas</h4>
+                                <p class="text-nude-700">Reservas directas a través de Treatwell</p>
+                                <p class="text-xs text-nude-500">Confirmación inmediata las 24 horas</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex items-center gap-4">
+                        <a href="https://www.treatwell.es/establecimiento/mandri-nails/?utm_source=google&utm_medium=rwg" target="_blank" rel="noopener" class="px-8 py-3.5 rounded-full bg-nude-900 text-white font-semibold text-xs uppercase tracking-wider hover:bg-nude-800 transition-colors shadow-md">
+                            Ir a Treatwell Mandri Nails
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Interactive Map / Location Box -->
+                <div class="lg:col-span-7 bg-white p-4 rounded-3xl border border-nude-200 shadow-lg min-h-[380px] flex flex-col justify-between overflow-hidden relative">
+                    <!-- Embedded Google Map Representation -->
+                    <iframe title="Ubicación de Mandri Nails en Barcelona" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.836810243632!2d2.1325!3d41.4025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4986427d14e13%3A0x6b1990c749b5c3e!2sCarrer%20de%20Mandri%20Barcelona!5e0!3m2!1ses!2ses!4v1680000000000!5m2!1ses!2ses" class="w-full h-full min-h-[360px] rounded-2xl border-0" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-nude-900 text-nude-200 py-12 border-t border-nude-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <span class="font-serif text-2xl tracking-widest text-white">MANDRI NAILS</span>
+                    <p class="text-xs text-nude-400 mt-1">Salón de Belleza y Cuidado de Uñas · Carrer de Mandri, Barcelona</p>
+                </div>
+
+                <div class="flex items-center space-x-6 text-xs uppercase tracking-widest text-nude-300">
+                    <a href="#about" class="hover:text-white transition-colors">Nosotros</a>
+                    <a href="#services" class="hover:text-white transition-colors">Servicios</a>
+                    <a href="#location" class="hover:text-white transition-colors">Ubicación</a>
+                    <a href="https://www.treatwell.es/establecimiento/mandri-nails/?utm_source=google&utm_medium=rwg" target="_blank" rel="noopener" class="hover:text-white transition-colors">Treatwell</a>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-8 border-t border-nude-800 text-center text-[11px] text-nude-500 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p>&copy; 2026 Mandri Nails Barcelona. Todos los derechos reservados.</p>
+                <p>Reservas gestionadas mediante la plataforma oficial Treatwell.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING MOBILE BOOKING BUTTON -->
+    <div class="sm:hidden fixed bottom-4 inset-x-4 z-40">
+        <a href="https://www.treatwell.es/establecimiento/mandri-nails/?utm_source=google&utm_medium=rwg" target="_blank" rel="noopener" class="w-full py-3.5 px-6 rounded-full bg-nude-900 text-white font-bold text-xs uppercase tracking-wider shadow-2xl flex justify-center items-center gap-2 border border-rosegold-accent/40">
+            <i data-lucide="calendar" class="w-4 h-4 text-rosegold"></i>
+            <span>Reservar Cita en Treatwell</span>
+        </a>
+    </div>
+
+    <!-- QUICK BOOKING / APPOINTMENT MODAL -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden bg-nude-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-nude-200">
+            <button onclick="closeBookingModal()" class="absolute top-6 right-6 p-2 text-nude-500 hover:text-nude-900" aria-label="Cerrar modal">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="space-y-4">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-nude-100 text-nude-800 text-[10px] font-semibold uppercase tracking-wider">
+                    Reserva Rápida
+                </div>
+                <h3 class="font-serif text-2xl text-nude-900 font-medium">Planifica tu visita</h3>
+                <p class="text-xs text-nude-600">Selecciona el tratamiento que deseas y completa tu horario disponible directamente en Treatwell.</p>
+
+                <form onsubmit="redirectToTreatwell(event)" class="space-y-4 pt-2">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-nude-700 font-semibold mb-1">Servicio Seleccionado</label>
+                        <select id="modal-service-select" class="w-full p-3 rounded-xl border border-nude-300 text-sm focus:outline-none focus:border-nude-800 bg-nude-50/50">
+                            <option value="Manicura Semipermanente Mandri">Manicura Semipermanente (28 €)</option>
+                            <option value="Manicura Rusa Combinada">Manicura Rusa Combinada (35 €)</option>
+                            <option value="Pedicura Spa Completa">Pedicura Spa Completa (42 €)</option>
+                            <option value="Extensiones de Uñas en Gel">Extensiones de Uñas en Gel (55 €)</option>
+                            <option value="Tratamiento Parafina Hidratante">Tratamiento Parafina (12 €)</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-nude-700 font-semibold mb-1">Día Preferido</label>
+                            <input type="date" class="w-full p-3 rounded-xl border border-nude-300 text-sm focus:outline-none focus:border-nude-800 bg-nude-50/50">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-nude-700 font-semibold mb-1">Preferencia Horaria</label>
+                            <select class="w-full p-3 rounded-xl border border-nude-300 text-sm focus:outline-none focus:border-nude-800 bg-nude-50/50">
+                                <option>Mañana (10:00 - 14:00)</option>
+                                <option>Tarde (14:00 - 20:00)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit" class="w-full py-4 rounded-xl bg-nude-900 text-white font-bold text-xs uppercase tracking-widest hover:bg-nude-800 transition-colors shadow-lg flex justify-center items-center gap-2">
+                            <span>Continuar en Treatwell</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT CONTROLS -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile Menu Drawer Controls
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        // Tab Switcher Logic
+        function switchTab(tabCategory) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            // Deactivate all tab buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-nude-900', 'text-white', 'shadow-md');
+                btn.classList.add('bg-white', 'text-nude-800', 'border', 'border-nude-200');
+            });
+
+            // Show selected tab content
+            const targetContent = document.getElementById('content-' + tabCategory);
+            if (targetContent) {
+                targetContent.classList.remove('hidden');
+            }
+
+            // Activate selected tab button
+            const activeBtn = document.getElementById('tab-' + tabCategory);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-nude-800', 'border', 'border-nude-200');
+                activeBtn.classList.add('bg-nude-900', 'text-white', 'shadow-md');
+            }
+        }
+
+        // Modal Controls
+        const bookingModal = document.getElementById('booking-modal');
+        const serviceSelect = document.getElementById('modal-service-select');
+
+        function openBookingModal(serviceName) {
+            if (serviceName && serviceSelect) {
+                for (let i = 0; i < serviceSelect.options.length; i++) {
+                    if (serviceSelect.options[i].value.toLowerCase().includes(serviceName.toLowerCase()) || serviceName.toLowerCase().includes(serviceSelect.options[i].value.toLowerCase())) {
+                        serviceSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            bookingModal.classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            bookingModal.classList.add('hidden');
+        }
+
+        function redirectToTreatwell(event) {
+            event.preventDefault();
+            window.open('https://www.treatwell.es/establecimiento/mandri-nails/?utm_source=google&utm_medium=rwg', '_blank');
+            closeBookingModal();
+        }
+    </script>
+</body>
+</html>
